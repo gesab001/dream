@@ -20,6 +20,22 @@ blockquote{
   padding-right:30px;
  
 }  
+
+#navigation{
+ display:flex;
+ flex-direction: row;
+}
+.nav-buttons {
+display: flex;flex-direction: column;flex-grow: 1;align-items: center; 
+}
+
+.nav-buttons:hover span{
+   background-color: red;
+}
+
+.nav-buttons span {
+display: flex;border: 2px;border-style: solid;border-color: blue;margin: 10px;border-radius: 9999px;padding: 10px;padding-left: 30px;padding-right: 30px; transition-property: background-color;
+}
 </style>
 </head>
 
@@ -27,12 +43,33 @@ blockquote{
 
 <div style="display: flex;flex-direction: column;align-items: center;justify-content: center;height: 100%;">
 
-<div id="message">hello</div></div>
+<div id="message">
+<blockquote>If those engaged in the warfare are not wide awake, earnest, vigilant, praying for wisdom, watching unto prayer, . . . Satan comes off victor, when he might have been vanquished by the armies of the Lord. . . . God’s faithful sentinels are to give the evil powers no advantage. {<em>Letter 47</em>, 1893}</blockquote></div>
 
 
+</div>
+
+
+
+<div id="navigation">
+
+<div class="nav-buttons">
+<span onclick="back()">back</span></div>
+
+
+<div class="nav-buttons">
+
+<span  onclick="next()">next</span>
+</div>
+</div>
 
 <script>
 loadXMLDoc();
+var date = new Date();
+var timestamp = date.getTime();
+var day = Math.round(timestamp / 1000 / 60 / 60 / 24);
+var jsondata;
+var total;
 
 function loadXMLDoc() {
   var xhttp = new XMLHttpRequest();
@@ -48,10 +85,24 @@ function loadXMLDoc() {
 function loadParagraph(response){
   jsondata = JSON.parse(response).items;
   total = jsondata.length;
-  var date = new Date();
-  var timestamp = date.getTime();
-  day = Math.round(timestamp / 1000 / 60 / 60 / 24);
-  document.getElementById("message").innerHTML = jsondata[day%total] ;
+  this.displayParagraph();
+}
+
+function displayParagraph(){
+ document.getElementById("message").innerHTML = jsondata[day%total] ;
+}
+
+function back(){
+
+  day = day - 1;
+
+  this.displayParagraph();
+}
+
+function next(){
+ day = day + 1;
+
+  this.displayParagraph();
 }
 </script>
 
