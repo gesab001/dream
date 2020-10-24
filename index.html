@@ -1,9 +1,7 @@
 <html>
+   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
    <head>
       <style>
-         #message{
-         font-size: 4vw;
-         }
          blockquote{
          border-left: 5px;
          border-right: 0px;
@@ -17,39 +15,18 @@
          padding-left: 25px;
          padding-right:30px;
          }  
-         #navigation{
-         display:flex;
-         flex-direction: row;
-         }
-         .nav-buttons {
-         display: flex;flex-direction: column;flex-grow: 1;align-items: center; 
-         }
-         .nav-buttons:hover span{
-         background-color: red;
-         }
-         .nav-buttons span {
-         display: flex;border: 2px;border-style: solid;border-color: blue;margin: 10px;border-radius: 9999px; padding: 50px;
-         padding-right: 50px;
-         padding-left: 50px;
-         padding-left: 80px;
-         padding-right: 80px;
-         transition-property: background-color;
-         font-size: xxx-large;
-         }
+		 
+		 .buttons{
+		 display:flex; flex-direction:row; flex-grow: 1; align-items:center; justify-content:center;
+		 }
       </style>
    </head>
    <body style="margin: 0;height: 100%;">
-      <div style="display: flex;flex-direction: column;align-items: center;justify-content: center;height: 100%;">
-         <div id="message">
-            <blockquote>If those engaged in the warfare are not wide awake, earnest, vigilant, praying for wisdom, watching unto prayer, . . . Satan comes off victor, when he might have been vanquished by the armies of the Lord. . . . God’s faithful sentinels are to give the evil powers no advantage. {<em>Letter 47</em>, 1893}</blockquote>
-         </div>
-      </div>
-      <div id="navigation">
-         <div class="nav-buttons">
-            <span onclick="back()">back</span>
-         </div>
-         <div class="nav-buttons">
-            <span  onclick="next()">next</span>
+      <div style="display:flex; flex-direction:column; ">
+         <div id="message" style="display:flex; flex-direction:column;  font-size:4vw; padding:10px; "></div>
+         <div style="display:flex; flex-direction:row; background-color:red; position:fixed; bottom:0; width:100%">
+            <div class="buttons"  onclick="back()" ><span style="display:flex">back</span></div>
+            <div class="buttons" onclick="next()"><span style="display:flex">next</span></div>
          </div>
       </div>
       <script>
