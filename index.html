@@ -56,6 +56,8 @@
          
          function displayParagraph(){
           document.getElementById("message").innerHTML = jsondata[day%total] ;
+		   document.body.scrollTop = 0; // For Safari
+           document.documentElement.scrollTop = 0;  // For Chrome, Firefox, IE and Opera
          }
          
          function back(){
